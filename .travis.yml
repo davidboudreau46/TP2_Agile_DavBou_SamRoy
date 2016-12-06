@@ -8,11 +8,15 @@ branches:
 
 services:
   - docker
+  
+before_install:
+    - openssl aes-256-cbc -K $encrypted_a6e4154747b9_key -iv $encrypted_a6e4154747b9_iv -in ./key/analyseDO.enc -out analyseDO -d 
+    - eval "$(ssh-agent -s)"
+    - chmod 600 analyseDO
+    - ssh-add analyseDO
 
 script:
-  - chmod ugo+x ./dockerClean.sh
   - chmod ugo+x ./start-db.sh
   - chmod ugo+x ./start-web.sh
-  - ./dockerClean.sh
   - ./start-db.sh
   - ./start-web.sh
