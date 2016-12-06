@@ -1,0 +1,12 @@
+﻿@model webapp.ViewModels.Home.HomeIndexViewModelClass
+<h1> Nom de Chien :</h1>
+<ul>
+    @foreach(var dogName in Model.DogNames)
+    {
+        <li>
+            @dogName.Name
+        </li>
+    }
+</ul>
+
+

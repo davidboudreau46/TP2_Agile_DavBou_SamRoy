@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "app.persistence": "1.0.0-*"
+  },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.1"
+        }
+      },
+      "tooling": {
+        "defaultNamespace": "app.testApi"
+      }
+    }
+  },
+  "version": "1.0.0-*"
+}

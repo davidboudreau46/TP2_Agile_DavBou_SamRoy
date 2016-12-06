@@ -1,0 +1,8 @@
+#:C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.web.acceptanceTests\app.web.acceptanceTests.xproj
+C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.web.acceptanceTests\app.web.acceptanceTests.xproj|C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.web\app.web.xproj
+C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.web.acceptanceTests\app.web.acceptanceTests.xproj|C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.testApi\app.testApi.xproj
+C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.web.acceptanceTests\app.web.acceptanceTests.xproj|C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.domain\app.domain.xproj
+C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.web\app.web.xproj|C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.domain\app.domain.xproj
+C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.web\app.web.xproj|C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.persistence\app.persistence.xproj
+C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.persistence\app.persistence.xproj|C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.domain\app.domain.xproj
+C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.testApi\app.testApi.xproj|C:\Users\David\Documents\GitHub\561-eq-tp2-samroy-davbou-1\NamesGenerator\app.persistence\app.persistence.xproj
