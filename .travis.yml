@@ -10,6 +10,9 @@ services:
   - docker
 
 script:
+  - chmod ugo+x ./dockerClean.sh
+  - chmod ugo+x ./start-db.sh
+  - chmod ugo+x ./start-web.sh
   - ./dockerClean.sh
   - ./start-db.sh
   - ./start-web.sh
