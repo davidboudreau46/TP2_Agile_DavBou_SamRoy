@@ -1,0 +1,15 @@
+sudo: required
+
+language: csharp
+
+branches:
+  only:
+  - master
+
+services:
+  - docker
+
+script:
+  - ./dockerClean.sh
+  - ./start-db.sh
+  - ./start-web.sh
