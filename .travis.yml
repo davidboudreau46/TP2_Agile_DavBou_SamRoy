@@ -22,7 +22,7 @@ before_install:
 script:
   - sshpass -e scp -o StrictHostKeyChecking=no ./start-web.sh u1466885@159.203.33.172:/home/u1466885
   - sshpass -e scp -o StrictHostKeyChecking=no ./start-db.sh u1466885@159.203.33.172:/home/u1466885
-  - sshpass u1466885@159.203.33.172 "chmod +x ./start-web.sh"
-  - sshpass u1466885@159.203.33.172 "chmod +x ./start-db.sh"
-  - sshpass u1466885@159.203.33.172 "sh ./start-web.sh"
-  - sshpass u1466885@159.203.33.172 "sh ./start-db.sh"
+  - sshpass u1466885@159.203.33.172 'chmod +x start-web.sh'
+  - sshpass u1466885@159.203.33.172 'chmod +x start-db.sh'
+  - sshpass u1466885@159.203.33.172 'sh start-web.sh'
+  - sshpass u1466885@159.203.33.172 'sh start-db.sh'
