@@ -8,21 +8,9 @@ branches:
 
 services:
   - docker
-  
-before_install:
-    - sudo apt-get -qq update
-    - sudo apt-get install sshpass
-    - docker build -t samroydavbou/web_image:latest -f ./docker/web/Dockerfile  .
-    - docker build -t samroydavbou/db_image:latest -f ./docker/db/Dockerfile  .
-    - docker login -u=$DOCKER_HUB_USERNAME -p=$DOCKER_HUB_PASSWD
-    - docker push samroydavbou/web_image:latest
-    - docker push samroydavbou/db_image:latest
-    - export SSHPASS=$DIGITAL_OCEAN_PASSWD
 
 script:
-  - sshpass -e scp -o StrictHostKeyChecking=no ./start-web.sh u1466885@159.203.33.172:/home/u1466885
-  - sshpass -e scp -o StrictHostKeyChecking=no ./start-db.sh u1466885@159.203.33.172:/home/u1466885
-  - sshpass u1466885@159.203.33.172 'chmod +x start-web.sh'
-  - sshpass u1466885@159.203.33.172 'chmod +x start-db.sh'
-  - sshpass u1466885@159.203.33.172 'sh start-web.sh'
-  - sshpass u1466885@159.203.33.172 'sh start-db.sh'
+  - sudo docker build -t samroydavbou/db_image:latest -f ./docker/db/Dockerfile  .
+  - sudo docker run --name SamDavPGDB -e POSTGRES_PASSWORD=$ROOT_POSTGRES_PASSWORD  -d samroydavbou/db_image:latest
+  - sudo docker build -t samroydavbou/web_image:latest -f ./docker/web/Dockerfile  .
+  - sudo docker run -it --rm --link SamDavPGDB -e WEBAPP_DATABASE_CONNECTIONSTRING=$WEBAPP_DATABASE_CONNECTIONSTRING samroydavbou/web_image
