@@ -31,7 +31,7 @@ namespace app.web.acceptanceTests
         [Fact]
         private void le_nom_des_chien_s_affiche()
         {
-            Assert.True(true);
+            Assert.True(_htmlPageContent.Contains(_dogNames[0].Name));
         }
 
         private async void l_utilisateur_demande_de_voir_la_page_principale()

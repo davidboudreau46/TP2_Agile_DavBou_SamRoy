@@ -8,4 +8,5 @@ cd $srcPath/app.persistence;
 dotnet ef database update;
 dotnet test $srcPath/app.web;
 cd $srcPath/app.web;
-dotnet /root/publish/app.web.dll;
+dotnet test $srcPath/app.web.unitTests;
+dotnet test $srcPath/app.web.acceptanceTests;
