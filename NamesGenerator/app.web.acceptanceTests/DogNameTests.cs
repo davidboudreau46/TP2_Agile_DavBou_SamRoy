@@ -9,6 +9,7 @@ using TestStack.BDDfy;
 using Xunit;
 using System.Net.Http;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace app.web.acceptanceTests
 {
@@ -20,7 +21,7 @@ namespace app.web.acceptanceTests
     public class DogNameTests : AcceptanceTestsBase
     {
         private string _htmlPageContent;
-        private List<DogName> _dogNames;
+        private DogName _dogName;
         public void afficher_le_nom_un_chien()
         {
             this.Given(x => un_nom_de_chien())
@@ -29,33 +30,32 @@ namespace app.web.acceptanceTests
                 .BDDfy();
         }
         [Fact]
-        private void le_nom_des_chien_s_affiche()
+        private void un_nom_de_chien()
         {
-            Assert.True(_htmlPageContent.Contains(_dogNames[0].Name));
+            DbTestApi.ClearAllTables();
+            _dogName = newDogNames();
+            DbTestApi.CreateDogName(_dogName);
         }
-
         private async void l_utilisateur_demande_de_voir_la_page_principale()
         {
             var response = await HttpClient.GetAsync("/Home");
             response.EnsureSuccessStatusCode();
             _htmlPageContent = await response.Content.ReadAsStringAsync();
         }
-
-        private void un_nom_de_chien()
+        private void le_nom_des_chien_s_affiche()
         {
-            DbTestApi.ClearAllTables();
-            _dogNames = newDogNames();
+            Assert.True(_htmlPageContent.Contains(_dogName.Name));
         }
 
-        private List<DogName> newDogNames()
+
+
+        private DogName newDogNames()
         {
-            return new List<DogName>()
-            {
+            return
                 new DogName()
                 {
                     Name = "Chien Chien"
-                }
-            };
+                };
         }
     }
 }
