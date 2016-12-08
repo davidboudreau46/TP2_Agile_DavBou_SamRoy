@@ -10,7 +10,7 @@ EXPOSE 5000
 
 COPY ./docker/web/run.sh /scripts/run.sh
 COPY ./NamesGenerator /NamesGenerator
-RUN chmod 775 /scripts/run.sh
+RUN chmod 777 /scripts/run.sh
 
 WORKDIR /NamesGenerator
 CMD ["sh","/scripts/run.sh"]
