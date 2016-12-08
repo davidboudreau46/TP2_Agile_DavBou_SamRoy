@@ -1,7 +1,7 @@
 #!/bin/bash
 set -v
-docker stop postgresdb
-docker rm postgresdb
-docker build -t db_image -f ./docker/db/Dockerfile  .
-docker run --name postgresdb -p 5432:5432 -e POSTGRES_PASSWORD=$ROOT_POSTGRES_PASSWORD  -d db_image
+docker stop SamDavPGDB
+docker rm SamDavPGDB
+docker build -t samroydavbou/db_image:latest -f ./docker/db/Dockerfile  .
+docker run --name SamDavPGDB -p 5432:5432 -e POSTGRES_PASSWORD=$ROOT_POSTGRES_PASSWORD  -d samroydavbou/db_image:latest
 docker ps

@@ -9,7 +9,8 @@ ENV WEBAPP_DATABASE_CONNECTIONSTRING=$WEBAPP_DATABASE_CONNECTIONSTRING
 EXPOSE 5000
 
 COPY ./docker/web/run.sh /scripts/run.sh
-RUN chmod +x /scripts/run.sh
+COPY ./NamesGenerator /NamesGenerator
+RUN chmod 775 /scripts/run.sh
 
-WORKDIR ./NameGenerator
+WORKDIR /NamesGenerator
 CMD ["sh","/scripts/run.sh"]

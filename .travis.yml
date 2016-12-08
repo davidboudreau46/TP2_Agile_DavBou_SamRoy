@@ -10,13 +10,15 @@ services:
   - docker
   
 before_install:
-    - openssl aes-256-cbc -K $encrypted_a6e4154747b9_key -iv $encrypted_a6e4154747b9_iv -in ./key/analyseDO.enc -out analyseDO -d 
+    - openssl aes-256-cbc -K $encrypted_226bec56328a_key -iv $encrypted_226bec56328a_iv -in keys/pinguin.enc -out pinguin -d
     - eval "$(ssh-agent -s)"
-    - chmod 600 analyseDO
-    - ssh-add analyseDO
+    - chmod 600 pinguin
+    - ssh-add pinguin
 
 script:
-  - chmod ugo+x ./start-db.sh
-  - chmod ugo+x ./start-web.sh
-  - ./start-db.sh
-  - ./start-web.sh
+  - sshpass -e scp -o StrictHostKeyChecking=no ./start-web.sh u1466885@159.203.33.172:/home/u1466885
+  - sshpass -e scp -o StrictHostKeyChecking=no ./start-db.sh u1466885@159.203.33.172:/home/u1466885
+  - ssh u1466885@159.203.33.172 "chmod +x ./start-web.sh"
+  - ssh u1466885@159.203.33.172 "chmod +x ./start-db.sh"
+  - ssh u1466885@159.203.33.172 "bash ./start-web.sh"
+  - ssh u1466885@159.203.33.172 "bash ./start-db.sh"

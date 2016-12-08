@@ -1,7 +1,6 @@
 #!bin/bash
 set -ev
-
-srcPath=$PWD 
+srcPath=$PWD
 
 # Restore de tous les projets
 dotnet restore
