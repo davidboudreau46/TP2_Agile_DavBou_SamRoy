@@ -10,6 +10,8 @@ services:
   - docker
   
 before_install:
+    - sudo apt-get -qq update
+    - sudo apt-get install sshpass
     - docker build -t samroydavbou/web_image:latest -f ./docker/web/Dockerfile  .
     - docker build -t samroydavbou/db_image:latest -f ./docker/db/Dockerfile  .
     - docker login -u=$DOCKER_HUB_USERNAME -p=$DOCKER_HUB_PASSWD
