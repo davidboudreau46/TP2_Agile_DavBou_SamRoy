@@ -12,5 +12,6 @@ services:
 script:
   - sudo docker build -t samroydavbou/db_image:latest -f ./docker/db/Dockerfile  .
   - sudo docker run --name SamDavPGDB -e POSTGRES_PASSWORD=$ROOT_POSTGRES_PASSWORD  -d samroydavbou/db_image:latest
+  - sudo docker start SamDavPGDB
   - sudo docker build -t samroydavbou/web_image:latest -f ./docker/web/Dockerfile  .
   - sudo docker run -it --rm --link SamDavPGDB -e WEBAPP_DATABASE_CONNECTIONSTRING=$WEBAPP_DATABASE_CONNECTIONSTRING samroydavbou/web_image
